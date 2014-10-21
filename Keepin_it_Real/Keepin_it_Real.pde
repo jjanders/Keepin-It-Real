@@ -22,4 +22,5 @@ void draw(){
   } 
   a = random(-10,0);
   a = random(10,0);
+  y = a * (x-h) * (x-h) + k;
 }
