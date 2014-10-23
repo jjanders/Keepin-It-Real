@@ -1,8 +1,8 @@
 float y;
 float x;
 float a;
-float h;
-float k;
+int h;
+int k;
 float b;
 float c;
 void setup(){
@@ -14,22 +14,23 @@ void draw(){
   stroke(0);
   line(0,400,800,400);
   line(400,0,400,800);
-  for (int tickX = 0; tickX <= 800; tickX+=10){
+  for (int tickX = 0; tickX <= 800; tickX+=20){
    line(tickX,398,tickX,402);
   } 
-  for (int tickY = 0; tickY <= 800; tickY+=10){
+  for (int tickY = 0; tickY <= 800; tickY+=20){
    line(398,tickY,402,tickY);
   } 
-  y = a * (x-h) * (x-h) + k
+  a = random(-10,0);
+  a = random(10,0);
+  y = a * (x-h) * (x-h) + k;
 }
-
 void mouseClicked(){
-  mouseX = h
-  mouseY = k
-  if mouseClick == RIGHT{
+  mouseX = h;
+  mouseY = k;
+  if (mouseButton == RIGHT) {
   a = random(10,0);
   }
-  if mouseClick == LEFT{
+  if (mouseButton == LEFT) {
   a = random(-10,0);
   }
 }
