@@ -20,10 +20,16 @@ void draw(){
   for (int tickY = 0; tickY <= 800; tickY+=10){
    line(398,tickY,402,tickY);
   } 
-  a = random(-10,0);
-  a = random(10,0);
   y = a * (x-h) * (x-h) + k
 }
 
 void mouseClicked(){
+  mouseX = h
+  mouseY = k
+  if mouseClick == RIGHT{
+  a = random(10,0);
+  }
+  if mouseClick == LEFT{
+  a = random(-10,0);
+  }
 }
