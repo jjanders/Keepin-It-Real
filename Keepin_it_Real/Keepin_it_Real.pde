@@ -1,8 +1,8 @@
 float y;
 float x;
 float a;
-int h;
-int k;
+float h;
+float k;
 float b;
 float c;
 void setup(){
@@ -25,8 +25,8 @@ void draw(){
   y = a * (x-h) * (x-h) + k;
 }
 void mouseClicked(){
-  mouseX = h;
-  mouseY = k;
+  h = mouseX;
+  k = mouseY;
   if (mouseButton == RIGHT) {
   a = random(10,0);
   }
