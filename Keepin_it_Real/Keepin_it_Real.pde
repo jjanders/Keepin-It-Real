@@ -23,8 +23,6 @@ void draw(){
   a = random(-10,0);
   a = random(10,0);
   y = a * (x-h) * (x-h) + k;
-<<<<<<< HEAD
-=======
 }
 void mouseClicked(){
   h = mouseX;
@@ -35,5 +33,4 @@ void mouseClicked(){
   if (mouseButton == LEFT) {
   a = random(-10,0);
   }
->>>>>>> origin/pr/1
 }
