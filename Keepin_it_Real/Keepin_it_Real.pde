@@ -23,11 +23,14 @@ void draw(){
   a = random(-10,0);
   a = random(10,0);
   y = a * (x-h) * (x-h) + k;
+  println("y:"+y+"x:"+x);
+  println("h:"+h+"k:"+k);
 }
 void mouseClicked(){
-  h = mouseX;
-  k = mouseY;
+  h = (mouseX-400.0)/20.0;
+  k = (-mouseY+400.0)/20.0;
   if (mouseButton == RIGHT) {
+    
   a = random(10,0);
   }
   if (mouseButton == LEFT) {
