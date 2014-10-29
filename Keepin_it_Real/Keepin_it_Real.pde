@@ -15,6 +15,7 @@ void setup(){
   noStroke();
 }
 void draw(){
+  //background(255);
    for (int tickX = 0; tickX <= 800; tickX+=20){
      stroke(200);
      line(tickX,0,tickX,800);
@@ -37,30 +38,35 @@ void draw(){
   fill(255);
   rect(801,0,200,800);
   fill(50);
-  text("The vertex is ("+h+", "+k+")",850,30,70,80);
+  text("The vertex is ("+h+", "+k+")",850,30,100,100);
   b = -2 * a * h;
   c = (a * h * h) + k;
-  y = a * (x-h) * (x-h) + k;
+ // y = a * (x-h) * (x-h) + k;
   y = (a * x * x) + (b * x) + c;
 }
 void mouseClicked(){
   if(mouseX<800){
-    noStroke();
-    fill(255);
-    rect(0,0,800,800);
+      fill(255);
+  rect(0,0,800,800);
   h = (mouseX-400.0)/20.0;
   k = (-mouseY+400.0)/20.0;
+  
   if (mouseButton == RIGHT) {
-  a = random(0.1,9.9);
+    a = random(0.1,9.9);
   }
+  
   if (mouseButton == LEFT) {
-  a = random(-9.9,0);
+    a = random(-9.9,0);
   }
-    for (int dash=0; dash <= 800; dash+=20){
+
+  for (int dash=0; dash <= 800; dash+=20){
     line(mouseX,dash,mouseX,dash+10);
   }
-  for (int parabola=0; parabola <= 50; parabola++){
-    
+  
+  for (int x = 0; x <= 400; x++){
+    y = (a * x * x) + (b * x) + c;
+    stroke(0);
+    ellipse(x+400,y,10,10);
   }
 
   }
