@@ -1,5 +1,5 @@
 float y;
-//float x;
+float x;
 float a;
 float h;
 float k;
@@ -33,20 +33,14 @@ void draw(){
   for (int tickY = 0; tickY <= 800; tickY+=100){
    line(397,tickY,403,tickY);// tick y
   } 
-  //println("y:"+y+" x:"+x+" a:"+a);
+  println("y:"+y+" x:"+x+" a:"+a);
   println("b:"+b+" c:"+c);
-  fill(255);
-  rect(801,0,200,800);
-  fill(50);
-  text("The vertex is ("+h+", "+k+")",850,30,100,100);
-  b = -2 * a * h;
-  c = (a * h * h) + k;
- // y = a * (x-h) * (x-h) + k;
-  //y = (a * x * x) + (b * x) + c;
 }
 void mouseClicked(){
   if(mouseX<800){
-      fill(255);
+  b = -2 * a * h;
+  c = (a * h * h) + k;
+  fill(255);
   rect(0,0,800,800);
   h = (mouseX-400.0)/20.0;
   k = (-mouseY+400.0)/20.0;
@@ -63,12 +57,16 @@ void mouseClicked(){
     line(mouseX,dash,mouseX,dash+10);
   }
   
-  for (float x = 0; x <= 400; x=x+.1){
-    //y = ((a * x * x) + (b * x) + c)*20;
+  for (float x = -200; x <= 200; x=x+.1){
     y = a * sq(x-h) + k * -20;
     stroke(0);
-    ellipse(20*x+400,y+400,10,10);
+    point(20*x+400,y+400);
+//    line(20*x+400,y+400,20*x+300,y+300);
   }
+  fill(255);
+  rect(801,0,200,800);
+  fill(50);
+  text("The vertex is ("+h+", "+k+")",850,30,100,100);
 
   }
 }
