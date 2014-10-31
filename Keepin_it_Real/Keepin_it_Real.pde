@@ -34,7 +34,7 @@ void draw(){
    line(398,tickY,402,tickY);
   } 
   println("y:"+y+" x:"+x+" a:"+a);
-  println("h:"+h+" k:"+k);
+  println("b:"+b+" c:"+c);
   fill(255);
   rect(801,0,200,800);
   fill(50);
@@ -42,7 +42,7 @@ void draw(){
   b = -2 * a * h;
   c = (a * h * h) + k;
  // y = a * (x-h) * (x-h) + k;
-  y = (a * x * x) + (b * x) + c;
+  //y = (a * x * x) + (b * x) + c;
 }
 void mouseClicked(){
   if(mouseX<800){
@@ -63,10 +63,11 @@ void mouseClicked(){
     line(mouseX,dash,mouseX,dash+10);
   }
   
-  for (int x = 0; x <= 400; x++){
-    y = (a * x * x) + (b * x) + c;
+  for (float x = 0; x <= 400; x=x+.1){
+    //y = ((a * x * x) + (b * x) + c)*20;
+    y = a * (x-h) * (x-h) + k;
     stroke(0);
-    ellipse(x+400,y,10,10);
+    ellipse(20*x+400,y+400,10,10);
   }
 
   }
