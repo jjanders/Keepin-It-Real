@@ -1,5 +1,14 @@
+/*Program:<Give  your  program  a  meaningfully  descriptive name>
+    Author:  Julian Anderson and Dennis Lin
+    Date:    <Date  of  Completion>
+    Notes:    Should  the  grader  (teacher,  peer,  etc.)  look  for  anything  specific?  
+                         Is  any  part  of  your  program  “broken”?
+                         Did  you  add  special  features?
+      Did  you  adapt  code from  somewhere  else?
+      */
 float y;
-float x;
+float x1;
+float x2;
 float a;
 float h;
 float k;
@@ -33,40 +42,46 @@ void draw(){
   for (int tickY = 0; tickY <= 800; tickY+=100){
    line(397,tickY,403,tickY);// tick y
   } 
-  println("y:"+y+" x:"+x+" a:"+a);
+  println("y:"+y+" a:"+a);
   println("b:"+b+" c:"+c);
+  println("x1:"+x1+" x2:"+x2);
 }
 void mouseClicked(){
   if(mouseX<800){
-  b = -2 * a * h;
-  c = (a * h * h) + k;
   fill(255);
   rect(0,0,800,800);
-  h = (mouseX-400.0)/20.0;
-  k = (-mouseY+400.0)/20.0;
   
+  h = (mouseX-400.0)/20.0;
+  k = (-mouseY+400.0)/20.0;//vertex
+
   if (mouseButton == LEFT) {
-    a = random(-10,0) * -1;
-  }
+    a = random(-10,0);
+  }//open down
   
   if (mouseButton == RIGHT) {
-    a = random(-10,0);
-  }
+    a = random(-10,0) * -1;
+  }//open up
 
   for (int dash=0; dash <= 800; dash+=20){
     line(mouseX,dash,mouseX,dash+10);
-  }
+  }//line of symmetry
   
-  for (float x = -200; x <= 200; x=x+.1){
-    y = a * sq(x-h) + k * -20;
+  for (float x = -200; x <= 200; x=x+.01){
+    y = a * sq(x-h) + k;
     stroke(0);
-    point(20*x+400,y+400);
-//    line(20*x+400,y+400,20*x+300,y+300);
+    line(20*x+400,y*-20+400,20*(x+.01)+400,(a*sq((x+.01)-h)+k)*-20+400);
+    //point(20*x+400,y*-20+400);
+// line(20*x+400,y+400,20*x+300,y+300); 
   }
   fill(255);
   rect(801,0,200,800);
   fill(50);
-  text("The vertex is ("+h+", "+k+")",850,30,100,100);
+  text("The vertex is ("+h+", "+k+")",850,30,100,100);//print vertex
 
   }
+  
+  x1 = (-b + sqrt(b * b - 4 * a * c))/2;
+  x2 = (-b - sqrt(b * b - 4 * a * c))/2;
+  b = -2 * a * h;
+  c = (a * h * h) + k;
 }
