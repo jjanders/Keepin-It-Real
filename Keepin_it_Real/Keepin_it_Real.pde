@@ -22,10 +22,7 @@ void setup(){
   size(1000,801);
   background(255);
   noStroke();
-}
-void draw(){
-  //background(255);
-   for (int tickX = 0; tickX <= 800; tickX+=20){
+  for (int tickX = 0; tickX <= 800; tickX+=20){
      stroke(200);
      line(tickX,0,tickX,800); // grid lines
   } 
@@ -42,37 +39,60 @@ void draw(){
   for (int tickY = 0; tickY <= 800; tickY+=100){
    line(397,tickY,403,tickY);// tick y
   } 
+}
+void draw(){ 
   println("y:"+y+" a:"+a);
   println("b:"+b+" c:"+c);
   println("x1:"+x1+" x2:"+x2);
 }
+
 void mouseClicked(){
-  if(mouseX<800){
-  fill(255);
-  rect(0,0,800,800);
   
+  if(mouseX<800){
+    
+  fill(255);
+  rect(0,0,800,800);//rectangle to clear board
+  
+  for (int tickX = 0; tickX <= 800; tickX+=20){
+     stroke(200);
+     line(tickX,0,tickX,800); // redraw grid lines
+  } 
+  for (int tickY = 0; tickY <= 800; tickY+=20){
+    stroke(200);
+    line(0,tickY,800,tickY);// redraw grid lines
+  }
+  stroke(0);
+  line(0,400,800,400);
+  line(400,0,400,800);
+  for (int tickX = 0; tickX <= 800; tickX+=100){
+   line(tickX,397,tickX,403);// redraw tick x
+  } 
+  for (int tickY = 0; tickY <= 800; tickY+=100){
+   line(397,tickY,403,tickY);// redraw tick y
+  } 
+
   h = (mouseX-400.0)/20.0;
-  k = (-mouseY+400.0)/20.0;//vertex
+  k = (-mouseY+400.0)/20.0;// convert vertex to gridlines
 
   if (mouseButton == LEFT) {
     a = random(-10,0);
-  }//open down
+  }// open down
   
   if (mouseButton == RIGHT) {
     a = random(-10,0) * -1;
-  }//open up
+  }// open up
 
   for (int dash=0; dash <= 800; dash+=20){
     line(mouseX,dash,mouseX,dash+10);
-  }//line of symmetry
+  }// draw line of symmetry
   
-  for (float x = -200; x <= 200; x=x+.01){
+  for (float x = -200; x <= 200; x=x+0.1){
     y = a * sq(x-h) + k;
     stroke(0);
-    line(20*x+400,y*-20+400,20*(x+.01)+400,(a*sq((x+.01)-h)+k)*-20+400);
-    //point(20*x+400,y*-20+400);
-// line(20*x+400,y+400,20*x+300,y+300); 
+    line(20*x+400,y*-20+400,20*(x+0.1)+400,(a*sq((x+0.1)-h)+k)*-20+400);
+    // line(20*x+400,y+400,20*x+300,y+300); special effects
   }
+  
   fill(255);
   rect(801,0,200,800);
   fill(50);
