@@ -14,7 +14,6 @@ float h;
 float k;
 float b;
 float c;
-//String realRoots = String.format("%.3f",x1);
 
 //String
 //String
@@ -97,30 +96,31 @@ void mouseClicked(){
   rect(801,0,200,800);
   fill(50);
   text("The vertex is ("+h+", "+k+")",825,30,190,100);//print vertex
-
+  
   }
   
   
   b = -2 * a * h ;
   c = a * h * h + k;
+  
   if ((sq(b)-4*a*c) > 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
     x2 = (-b - sqrt(sq(b) - (4 * a * c)))/(2*a);
-    text("The real roots are ("+x1+"), ("+x2+")",825,70,150,100);
+    String root1 = String.format("%.3f",x1);
+    String root2 = String.format("%.3f",x2);
+    text("The real roots are ("+root1+"), ("+root2+")",825,70,150,100);
   }
   if ((sq(b)-4*a*c) == 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
-//    String singleRoot = "The root is ("+x1+")";
-//    String.format("%.3f");
-//    text(singleRoot,850,70,100,100);  
-//    String.format(
-    text("The root is ("+x1+")",825,70,150,100);
+    String root1 = String.format("%.3f",x1);
+    text("The root is ("+root1+")",825,70,150,100);
   }
   if ((sq(b)-4*a*c) < 0){
     x1=(-b + sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
     x2=(-b - sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
-    text("The imaginary roots are ("+x1+"i), ("+x2+"i)",825,70,150,100);
+    String root1 = String.format("%.3f",x1);
+    String root2 = String.format("%.3f",x2);
+    text("The imaginary roots are ("+root1+"i), ("+root2+"i)",825,70,150,100);
   }
     text("The equation of the line of symmetry is x = "+h+"",825,120,150,100);
-    
 }
