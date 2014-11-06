@@ -14,6 +14,7 @@ float h;
 float k;
 float b;
 float c;
+float spacing;
 
 void setup(){
   size(1000,801);
@@ -96,7 +97,7 @@ void mouseClicked(){
   fill(50);
   text("The vertex is ("+h+", "+k+")",825,30,190,100);//print vertex
   
-  }// END GRAPH if statement
+ 
   
   
   b = -2 * a * h ;
@@ -122,4 +123,14 @@ void mouseClicked(){
     text("The imaginary roots are ("+root1+"i), ("+root2+"i)",825,70,150,100);
   }// imaginary roots
     text("The equation of the line of symmetry is x = "+h+"",825,120,150,100);
+    text("The equation of the parabola is: y = "+a+"x^2 + "+b+"x + "+c+"",825,150,150,300);
+    for(float table = h-5;table<=h+5;table++){
+      table=round(table);
+      spacing+=25;
+//      String xCoord
+      String yCoord = String.format("%.3f", (a * sq(table-h)+k));
+      text(""+table+" , "+yCoord+"" ,825,200+spacing,350,100);
+    }
+    spacing=0;
+     }// END GRAPH if statement
 }
