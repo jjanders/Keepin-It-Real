@@ -1,4 +1,4 @@
-/*Program:<Give  your  program  a  meaningfully  descriptive name>
+/*Program: Keepin' It Real
     Author:  Julian Anderson and Dennis Lin
     Date:    <Date  of  Completion>
     Notes:    Should  the  grader  (teacher,  peer,  etc.)  look  for  anything  specific?  
