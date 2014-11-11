@@ -15,6 +15,7 @@ float k;
 float b;
 float c;
 float spacing;
+PrintWriter output;
 
 void setup(){
   size(1100,801);
@@ -37,6 +38,7 @@ void setup(){
   for (int tickY = 0; tickY <= 800; tickY+=100){
    line(397,tickY,403,tickY);// tick y
   } 
+  output = createWriter("data/info.txt");
 }
 
 void draw(){ 
@@ -96,7 +98,7 @@ void mouseClicked(){
   rect(801,0,300,800);// textbox
   fill(50);
   text("The vertex is ("+h+", "+k+")",825,30,190,100);//print vertex
-  
+  output.println("The vertex is ("+h+" , "+k+")");
  
   
   
@@ -108,33 +110,42 @@ void mouseClicked(){
     x2 = (-b - sqrt(sq(b) - (4 * a * c)))/(2*a);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
-    text("The real roots are ("+root1+"), ("+root2+")",825,70,250,100);
+    text("The real roots are ("+root1+" , "+root2+")",825,70,250,100);
+      output.println("The real roots are ("+root1+" , "+root2+")");
   }// real roots 
   if ((sq(b)-4*a*c) == 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
     String root1 = String.format("%.3f",x1);
     text("The root is ("+root1+")",825,70,150,100);
+      output.println("The root is ("+root1+")");
   }// single root
   if ((sq(b)-4*a*c) < 0){
     x1=(-b + sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
     x2=(-b - sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
-    text("The imaginary roots are ("+root1+"i), ("+root2+"i)",825,70,275,100);
+    text("The imaginary roots are ("+root1+"i , "+root2+"i)",825,70,275,100);
+      output.println("The imaginary roots are ("+root1+"i , "+root2+"i)");// output imaginary roots to text
   }// imaginary roots
     text("The equation of the line of symmetry is x = "+h+"",825,120,225,100);
+      output.println("The equation of the line of symmetry is x = "+h+"");
     String aShrink = String.format("%.3f",a);
     String bShrink = String.format("%.3f",b);
     String cShrink = String.format("%.3f",c);
-    text("The equation of the parabola is:",825,175,225,300);
-    text("y = "+aShrink+"x^2 + "+bShrink+"x + "+cShrink+"",825,190,275,300);
+    text("The equation of the parabola is:",825,175,225,300); // print equation of parabola
+    text("y = "+aShrink+"x^2 + "+bShrink+"x + "+cShrink+"",825,190,275,300); //print equation of parabola
+    output.println("The equation of the parabola is: y = "+aShrink+"x^2 + "+bShrink+"x + "+cShrink+"");
     for(float table = h-5;table<=h+5;table++){
       table=round(table);
       spacing+=25;
-//      String xCoord
       String yCoord = String.format("%.3f", (a * sq(table-h)+k));
-      text(""+table+" , "+yCoord+"" ,825,250+spacing,350,100);
+      text(""+table+" , "+yCoord+"" ,825,250+spacing,350,100);//draw table
+    output.println(table + " , " + yCoord);//output table to text
     }
+    
+    output.flush();
+    output.close();
+    saveFrame("data/graph.jpg");
     spacing=0;
      }// END GRAPH if statement
 }
