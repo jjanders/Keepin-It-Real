@@ -17,7 +17,7 @@ float c;
 float spacing;
 
 void setup(){
-  size(1000,801);
+  size(1100,801);
   background(255);
   noStroke();
   for (int tickX = 0; tickX <= 800; tickX+=20){
@@ -93,7 +93,7 @@ void mouseClicked(){
   }//////////////////////////// PARABOLA
   
   fill(255);
-  rect(801,0,200,800);
+  rect(801,0,300,800);// textbox
   fill(50);
   text("The vertex is ("+h+", "+k+")",825,30,190,100);//print vertex
   
@@ -108,7 +108,7 @@ void mouseClicked(){
     x2 = (-b - sqrt(sq(b) - (4 * a * c)))/(2*a);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
-    text("The real roots are ("+root1+"), ("+root2+")",825,70,150,100);
+    text("The real roots are ("+root1+"), ("+root2+")",825,70,250,100);
   }// real roots 
   if ((sq(b)-4*a*c) == 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
@@ -120,16 +120,20 @@ void mouseClicked(){
     x2=(-b - sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
-    text("The imaginary roots are ("+root1+"i), ("+root2+"i)",825,70,150,100);
+    text("The imaginary roots are ("+root1+"i), ("+root2+"i)",825,70,275,100);
   }// imaginary roots
-    text("The equation of the line of symmetry is x = "+h+"",825,120,150,100);
-    text("The equation of the parabola is: y = "+a+"x^2 + "+b+"x + "+c+"",825,150,150,300);
+    text("The equation of the line of symmetry is x = "+h+"",825,120,225,100);
+    String aShrink = String.format("%.3f",a);
+    String bShrink = String.format("%.3f",b);
+    String cShrink = String.format("%.3f",c);
+    text("The equation of the parabola is:",825,175,225,300);
+    text("y = "+aShrink+"x^2 + "+bShrink+"x + "+cShrink+"",825,190,275,300);
     for(float table = h-5;table<=h+5;table++){
       table=round(table);
       spacing+=25;
 //      String xCoord
       String yCoord = String.format("%.3f", (a * sq(table-h)+k));
-      text(""+table+" , "+yCoord+"" ,825,200+spacing,350,100);
+      text(""+table+" , "+yCoord+"" ,825,250+spacing,350,100);
     }
     spacing=0;
      }// END GRAPH if statement
