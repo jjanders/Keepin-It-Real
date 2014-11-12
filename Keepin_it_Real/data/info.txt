@@ -1,0 +1,15 @@
+The vertex is (-2.6 , 10.8)
+The real roots are (-5.440 , 0.240)
+The equation of the line of symmetry is x = -2.6
+The equation of the parabola is: y = -1.339x^2 + -6.962x + 1.749
+-8.0 , -28.241
+-7.0 , -15.120
+-6.0 , -4.677
+-5.0 , 3.088
+-4.0 , 8.176
+-3.0 , 10.586
+-2.0 , 10.318
+-1.0 , 7.373
+0.0 , 1.749
+1.0 , -6.552
+2.0 , -17.530
