@@ -14,6 +14,7 @@ float h;
 float k;
 float b;
 float c;
+float snapGrid=1;
 float spacing;
 PrintWriter output;
 
@@ -41,13 +42,11 @@ void setup(){
   output = createWriter("data/info.txt");
 }
 
-void draw(){ 
-  println("y:"+y+" a:"+a);
-  println("b:"+b+" c:"+c);
-  println("x1:"+x1+" x2:"+x2);
+void draw(){
 }
 
 void mouseClicked(){
+  
   
   if(mouseX<800){
     
@@ -111,22 +110,22 @@ void mouseClicked(){
     x2 = (-b - sqrt(sq(b) - (4 * a * c)))/(2*a);
     fill(255,0,0);
     ellipse(x1*20+400,400,10,10);
-    ellipse(x2*20+400,400,10,10);
+    ellipse(x2*20+400,400,10,10);/////////////////RED CIRCLES - REAL ROOTS
     fill(0);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
     text("The real roots are ("+root1+" , "+root2+")",825,70,250,100);
       output.println("The real roots are ("+root1+" , "+root2+")");
-  }// real roots 
+  }// REAL ROOTS
   if ((sq(b)-4*a*c) == 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
     fill(255,0,0);
-    ellipse(x1*20+400,400,10,10);
+    ellipse(x1*20+400,400,10,10);/////////////////RED CIRCLE - REAL ROOT
     fill(0);
     String root1 = String.format("%.3f",x1);
     text("The root is ("+root1+")",825,70,150,100);
       output.println("The root is ("+root1+")");
-  }// single root
+  }// SINGLE ROOT
   if ((sq(b)-4*a*c) < 0){
     x1=(-b + sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
     x2=(-b - sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
@@ -134,7 +133,7 @@ void mouseClicked(){
     String root2 = String.format("%.3f",x2);
     text("The imaginary roots are ("+root1+"i , "+root2+"i)",825,70,275,100);
       output.println("The imaginary roots are ("+root1+"i , "+root2+"i)");// output imaginary roots to text
-  }// imaginary roots
+  }// IMAGINARY ROOTS
     text("The equation of the line of symmetry is x = "+h+"",825,120,225,100);
       output.println("The equation of the line of symmetry is x = "+h+"");
     String aShrink = String.format("%.3f",a);
