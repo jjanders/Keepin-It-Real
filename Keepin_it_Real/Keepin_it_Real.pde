@@ -84,9 +84,10 @@ void mouseClicked(){
   }///////////////////////////// open up
 
   for (int dash=0; dash <= 800; dash+=20){
+    stroke(0,0,255);
     line(mouseX,dash,mouseX,dash+10);
   }//////////////////////////// draw line of symmetry
-  
+
   for (float x = -200; x <= 200; x=x+0.1){
     y = a * sq(x-h) + k;
     stroke(0);
@@ -108,6 +109,10 @@ void mouseClicked(){
   if ((sq(b)-4*a*c) > 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
     x2 = (-b - sqrt(sq(b) - (4 * a * c)))/(2*a);
+    fill(255,0,0);
+    ellipse(x1*20+400,400,10,10);
+    ellipse(x2*20+400,400,10,10);
+    fill(0);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
     text("The real roots are ("+root1+" , "+root2+")",825,70,250,100);
@@ -115,6 +120,9 @@ void mouseClicked(){
   }// real roots 
   if ((sq(b)-4*a*c) == 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
+    fill(255,0,0);
+    ellipse(x1*20+400,400,10,10);
+    fill(0);
     String root1 = String.format("%.3f",x1);
     text("The root is ("+root1+")",825,70,150,100);
       output.println("The root is ("+root1+")");
