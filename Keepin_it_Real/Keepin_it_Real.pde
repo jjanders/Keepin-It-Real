@@ -152,7 +152,8 @@ void mouseClicked(){
     
     output.flush();
     output.close();
-    saveFrame("data/graph.jpg");
+    PImage parabola = get(0,0,801,801);
+    parabola.save("data/graph.jpg");
     spacing=0;
      }// END GRAPH if statement
 }
