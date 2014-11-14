@@ -9,6 +9,7 @@
 float y;
 float x1;
 float x2;
+float xi;
 float a;
 float h;
 float k;
@@ -114,8 +115,8 @@ void mouseClicked(){
     fill(0);
     String root1 = String.format("%.3f",x1);
     String root2 = String.format("%.3f",x2);
-    text("The real roots are ("+root1+" , "+root2+")",825,70,250,100);
-      output.println("The real roots are ("+root1+" , "+root2+")");
+    text("The real roots are "+root1+" and "+root2+"",825,70,250,100);
+      output.println("The real roots are "+root1+" and "+root2+"");
   }// REAL ROOTS
   if ((sq(b)-4*a*c) == 0){
     x1 = (-b + sqrt(sq(b) - (4 * a * c)))/(2*a);
@@ -123,16 +124,17 @@ void mouseClicked(){
     ellipse(x1*20+400,400,10,10);/////////////////RED CIRCLE - REAL ROOT
     fill(0);
     String root1 = String.format("%.3f",x1);
-    text("The root is ("+root1+")",825,70,150,100);
-      output.println("The root is ("+root1+")");
+    text("The root is "+root1+"",825,70,150,100);
+      output.println("The root is "+root1+"");
   }// SINGLE ROOT
   if ((sq(b)-4*a*c) < 0){
-    x1=(-b + sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
-    x2=(-b - sqrt(-1*(sq(b) - (4 * a * c))))/(2*a);
+    x1=(-b)/(2*a); 
+    xi= sqrt(-1*(sq(b) - (4 * a * c)))/(2*a);
     String root1 = String.format("%.3f",x1);
-    String root2 = String.format("%.3f",x2);
-    text("The imaginary roots are ("+root1+"i , "+root2+"i)",825,70,275,100);
-      output.println("The imaginary roots are ("+root1+"i , "+root2+"i)");// output imaginary roots to text
+   // String root2 = String.format("%.3f",x2);
+    String imaginary = String.format("%.3f",xi);
+    text("The imaginary roots are "+root1+" + "+imaginary+"i and "+root1+" - "+imaginary+"i",825,70,275,100);
+      output.println("The imaginary roots are "+root1+" + "+imaginary+"i and "+root1+" - "+imaginary+"i");// output imaginary roots to text
   }// IMAGINARY ROOTS
     text("The equation of the line of symmetry is x = "+h+"",825,120,225,100);
       output.println("The equation of the line of symmetry is x = "+h+"");
@@ -157,3 +159,5 @@ void mouseClicked(){
     spacing=0;
      }// END GRAPH if statement
 }
+
+
