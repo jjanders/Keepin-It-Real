@@ -1,10 +1,9 @@
 /*Program: Keepin' It Real
     Author:  Julian Anderson and Dennis Lin
-    Date:    <Date  of  Completion>
-    Notes:    Should  the  grader  (teacher,  peer,  etc.)  look  for  anything  specific?  
-                         Is  any  part  of  your  program  “broken”?
-                         Did  you  add  special  features?
-      Did  you  adapt  code from  somewhere  else?
+    Date:    11/14/2014
+    Notes:  Snap to Grid - Press space to snap the parabola to the 
+                           nearest x and y coordinates of the mouse.
+            Find Special Effects and Uncomment for funky business. Neat, huh? It's pretty cool.
       */
 float y;
 float x1;
@@ -45,6 +44,8 @@ void setup(){
 
 void draw(){
 }
+
+///////////////////////// Actual Program
 
 void mouseClicked(){
   
@@ -92,7 +93,7 @@ void mouseClicked(){
     y = a * sq(x-h) + k;
     stroke(0);
     line(20*x+400,y*-20+400,20*(x+0.1)+400,(a*sq((x+0.1)-h)+k)*-20+400);
-    // line(20*x+400,y+400,20*x+300,y+300); special effects
+    //line(20*x+400,y+400,20*x+300,(a*sq((x+0.1)-h)+k)*-20+400); //special effects
   }//////////////////////////// PARABOLA
   
   fill(255);
@@ -159,6 +160,8 @@ void mouseClicked(){
     spacing=0;
      }// END GRAPH if statement
 }
+
+///////////////////////////////// SNAP TO GRID
 
 void keyPressed(){
   if (key == 32){
